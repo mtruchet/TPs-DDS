@@ -1,0 +1,22 @@
+@startuml
+actor Guia #green
+
+Guia -> UI: AuthenticationRequest(email,password)
+UI -> Controller : CheckEmailAndPassword(email,password)
+
+Controller -> Persistence: CheckEmail(email)
+Persistence --> Controller : return ResponseEmail
+alt ResponseEmail == True
+Controller -> Persistence: CheckPasword(password)
+Persistence --> Controller : return ResponsePassword
+
+alt ResponsePassword == True
+Controller --> UI : Return Message(OK)
+else ResponsePassword == False
+Controller --> UI : Return Message(Bad Request)
+end
+
+else ResponseEmail == False
+Controller --> UI : Return Message(Bad Request)
+end
+@enduml
