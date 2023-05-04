@@ -1,0 +1,38 @@
+@startuml
+actor Guia #green
+
+Guia -> UI: RegistrationRequest(cuit,name,lastname,email,password)
+UI -> Controller : CheckData(cuit,name,lastname)
+
+Controller -> AFIP : GetContributor(cuit)
+AFIP --> Controller : Return Contributor
+
+alt Contributor == nil
+Controller -> UI : Return Message (Bad Request)
+
+else Contributor != nil
+UI -> Controller : CreateGuide(cuit,name,lastname,email,password)
+
+Controller -> Persistence: GetGuide(email)
+Persistence --> Controller: Return guideInDB
+alt guideInDB != nil
+Persistence --> Controller: Return Message(Bad Request)
+Controller --> UI: Return Message(Bad Request)
+
+else
+Controller -> Persistence: CheckEmail(email)
+Persistence --> Controller: Return userInDB
+alt userInDB == true
+Persistence --> Controller: Return Message(Bad Request)
+Controller --> UI: Return Message(Bad Request)
+else
+Controller -> Guide : NewGuide()
+Guide --> Controller: Return guide
+Controller -> Persistence : SaveGuide(guide)
+Persistence -->Controller: Return Response(Ok)
+
+Controller --> UI: Return Message(Ok)
+end
+end
+end
+@enduml
