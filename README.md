@@ -1,3 +1,10 @@
 # Trabajos Prácticos Diseño de Sistemas.
 
-Dentro de cada Package "TPx/diagram" se encuentra el archivo .md con la explicación del caso de uso correspondiente.
+Dentro de cada Package "TPx/docs" se encuentra el archivo .md con la explicación de los casos de uso, flujos, y más.
+
+- TP1 : Diagnostico (Servicios Turísticos)
+- TP2 : Sistema de control y registro de planillas
+- TP3 : Turnero
+
+Carpeta aparte:
+ - Patron de Diseño
