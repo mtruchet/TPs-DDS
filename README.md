@@ -5,6 +5,7 @@ Dentro de cada Package "TPx/docs" se encuentra el archivo .md con la explicació
 - TP1 : Diagnostico (Servicios Turísticos)
 - TP2 : Sistema de control y registro de planillas
 - TP3 : Turnero
+- TP4 : Estacionamiento
 
-Carpeta aparte:
+Modulo aparte:
  - Patron de Diseño
