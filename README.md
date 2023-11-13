@@ -6,6 +6,7 @@ Dentro de cada Package "TPx/docs" se encuentra el archivo .md con la explicació
 - TP2 : Sistema de control y registro de planillas
 - TP3 : Turnero
 - TP4 : Estacionamiento
+- TPIntegrador: Documentación
 
 Modulo aparte:
  - Patron de Diseño
