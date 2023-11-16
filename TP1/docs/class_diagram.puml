@@ -1,0 +1,66 @@
+@startuml
+
+class Usuario {
+-dni: int
+-domicilio: String
+-telefono: int
+-email: String
+-ciudad: String
+-pais: String
+-servicio: List<Servicio>
+}
+
+class Servicio {
+-fecha: date
+-tipo: String
+-titulo: String
+-descripcion: String
+-saldo: decimal
+-estado: String
+-insumo: List<Insumo>
+-guia: Usuario
+-clientes: List<Usuario>
+}
+
+class Insumo {
+-nombre: String
+-cantidad: int
++emitirListado(): void
+}
+
+class OrdenDeCompra{
+-numero:int
+-insumo: List<Insumo>
+-cantidad: int
++generarOC(): void
+}
+
+class Reclamo{
+-descripcion: String
+}
+
+class FeedBack{
+-descripcion: String
+}
+
+class Pago{
+-monto: decimal
+-fecha: date
+-tipoMoneda: String
+}
+
+class Correo{
+-titulo: String
+-descripcion: String
+}
+
+Usuario "0..*" -- "0..*" Servicio: Posee
+Servicio "1" -- "1..*" Insumo: Posee
+Insumo "1..*" -- "1" OrdenDeCompra  : Posee
+Usuario "1" -- "0..*" Reclamo: Posee
+Usuario "1" -- "0..*" FeedBack: Posee
+Usuario "1" -- "0..*" Pago: Posee
+Usuario "1" -- "0..*" Correo: Posee
+
+
+@enduml
